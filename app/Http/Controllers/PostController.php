@@ -4,15 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
-use App\Models\PostTag;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
     public function index() {
-        $posts = Post::all();
-        //dd($posts);
+        $post = Post::find(1);
+        $category = Category::find(1);
+        $tag = Tag::find(1);
+
+        dd($post->tags);
+        dd($tag->posts);
+        dd($category->posts);
+        dd($post->category);
         return view('post.index', compact('posts'));
 
         //dd($post->tags);
